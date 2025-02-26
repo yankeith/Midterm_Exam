@@ -1,125 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Municipality of Tudela</title>
+    <title>Exciting Events in Tudela</title>
     <style>
+        /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background: url('1.png') no-repeat center center fixed;
             background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            color: #333;
-            transition: background 0.5s ease;
-        }
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1px;
-            text-align: center;
             color: white;
-        }
-        header h1 {
-            font-size: 3em;
-            letter-spacing: 2px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
             text-align: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 10px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            background: #2E2E2E;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        nav ul li a:hover {
-            background: #87CEEB;
-        }
-        .hero {
-            text-align: center;
-            margin-top: 50px;
-            color: white;
-            border-radius: 10px;
-        }
-        .hero h2 {
-            font-size: 100px;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 30px;
-            line-height: 1.8;
-        }
-        .events-list {
-            text-align: left;
-            font-size: 25px;
-            margin-top: 40px;
-            display: inline-block;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            width: 80%;
-        }
-        .events-list h3 {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-        .event-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .event-item img {
-            width: 600px;
-            height: 550px;
-            margin-right: 20px;
-            border-radius: 10px;
-        }
-        .event-item p {
-            margin: 0;
         }
         
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .navbar ul li a:hover {
+            background: #ffcc00;
+            color: black;
+            box-shadow: 0 0 10px #ffcc00;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 2;
+            max-width: 80%;
+            margin: 80px auto;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        
+        .event-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .event-item img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .event-item h3 {
+            font-size: 28px;
+        }
+        
+        .event-item p {
+            font-size: 18px;
+            max-width: 800px;
+            text-align: justify;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                max-width: 90%;
+                padding: 30px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Exciting Event in Tudela</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html"><u>Home</u></a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="events.html">Event</a></li>
-                <li><a href="food.html">Foods</a></li>
-                <li><a href="attractions.html">Attractions</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Gradient Overlay -->
+<div class="overlay"></div>
 
-    <div class="hero">
-        <h2><i>Popular Event</h2>
-        <div class="events-list">
-            <div class="event-item">
-                <img src='5.jpg' alt="Binalbal Festival">
-                <div>
-                    <h3>1. Binalbal Festival</h3>
-                    <p>The most prominent event in Tudela is the Binalbal Festival, celebrated annually on January 1st. This unique festival serves as a New Year's celebration where participants don elaborate masks and costumes, transforming into various characters, including supernatural beings like witches and ogres. The term "Binalbal" is derived from the local word "balbal," referring to such mythical creatures. The festival features a grand parade, street dancing, and a masquerade ball, fostering a sense of unity and joy among locals and visitors alike. </p>
-                </div>
-            </div>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="food.html">Foods</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h2>Popular Event</h2>
+    <div class="event-item">
+        <img src='5.jpg' alt="Binalbal Festival">
+        <div>
+            <h3>Binalbal Festival</h3>
+            <p>The most prominent event in Tudela is the Binalbal Festival, celebrated annually on January 1st. This unique festival serves as a New Year's celebration where participants don elaborate masks and costumes, transforming into various characters, including supernatural beings like witches and ogres. The term "Binalbal" is derived from the local word "balbal," referring to such mythical creatures. The festival features a grand parade, street dancing, and a masquerade ball, fostering a sense of unity and joy among locals and visitors alike.</p>
         </div>
     </div>
+</div>
 
 </body>
 </html>
